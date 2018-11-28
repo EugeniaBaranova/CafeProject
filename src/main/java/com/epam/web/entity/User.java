@@ -1,6 +1,6 @@
 package com.epam.web.entity;
 
-public class User {
+public class User implements Entity{
 
     private String password;
 

@@ -1,7 +1,7 @@
-package com.epam.web;
+package com.epam.web.controller;
 
-import com.epam.web.command.Command;
-import com.epam.web.command.CommandFactory;
+import com.epam.web.controller.command.Command;
+import com.epam.web.controller.command.CommandFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class TestServlet extends HttpServlet {
+public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         process(req, resp);
-        /*String name = req.getParameter("name");
-        req.setAttribute("name", name);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);*/
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.epam.web.command;
+package com.epam.web.controller.command;
 
 public class CommandFactory {
 

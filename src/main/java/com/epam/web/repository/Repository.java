@@ -5,11 +5,10 @@ import com.epam.web.repository.specification.Specification;
 import java.util.List;
 import java.util.Optional;
 
-public interface Repository<T> {
+public interface Repository<Entity> {
 
-    void add(T object);
+    Optional<Entity> queryForSingleResult(Specification specification);
 
-    void remove(T object);
+    Optional<List<Entity>> query(String string);
 
-    Optional<List<T>> findBy(Specification specification);
 }
