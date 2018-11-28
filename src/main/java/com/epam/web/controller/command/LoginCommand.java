@@ -18,6 +18,7 @@ public class LoginCommand implements Command {
 
         user.ifPresent(u -> req.setAttribute("user", u) );
 
+
         return "/WEB_INF/main.jsp";
     }
 }
