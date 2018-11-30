@@ -1,0 +1,5 @@
+<h1>Epam-cafe</h1>
+<br/>
+<a href="${pageContext.servletContext.contextPath}/controller?command=menu">Menu</a>
+<a href="${pageContext.servletContext.contextPath}/controller?command=orders">Orders</a>
+<a href="${pageContext.servletContext.contextPath}/controller?command=users">Users</a>

@@ -2,6 +2,7 @@ package com.epam.web.controller;
 
 import com.epam.web.controller.command.Command;
 import com.epam.web.controller.command.CommandFactory;
+import com.epam.web.controller.command.CommandResult;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,14 +25,21 @@ public class Controller extends HttpServlet {
     private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String command = req.getParameter("command");
         Command action = CommandFactory.create(command);
-        String page;
+        CommandResult commandResult = null;
         try {
-            page = action.execute(req, resp);
+            commandResult = action.execute(req, resp);
         } catch (Exception e) {
+            //TODO logger
             req.setAttribute("errorMassage", e.getMessage());
-            page = "/error.jsp";
+            dispatch(req, resp, "/error.jsp");
         }
-        dispatch(req, resp, page);
+        if (commandResult.isRedirect()) {
+            resp.sendRedirect(req.getContextPath() + "/redirected");
+        } else {
+            String page = commandResult.getPage();
+            dispatch(req, resp, page);
+        }
+
     }
 
     private void dispatch(HttpServletRequest req, HttpServletResponse resp, String page) throws ServletException, IOException {
