@@ -7,11 +7,11 @@ import com.epam.web.repository.specification.UserByLoginAndPasswordSpec;
 
 import java.util.Optional;
 
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 
+    @Override
     public Optional<User> login(String login, String password){
         Repository<User> repository = new UserRepository();
-        Optional<User> user = repository.queryForSingleResult(new UserByLoginAndPasswordSpec(login, password));
-        return user;
+        return repository.queryForSingleResult(new UserByLoginAndPasswordSpec(login, password));
     }
 }

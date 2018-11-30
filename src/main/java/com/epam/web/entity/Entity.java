@@ -1,4 +1,4 @@
 package com.epam.web.entity;
 
-public interface Entity {
+public abstract class Entity {
 }
