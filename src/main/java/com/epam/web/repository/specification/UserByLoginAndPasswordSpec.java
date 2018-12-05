@@ -2,6 +2,10 @@ package com.epam.web.repository.specification;
 
 import com.epam.web.entity.User;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class UserByLoginAndPasswordSpec implements Specification<User> {
 
     private String login;
@@ -13,7 +17,11 @@ public class UserByLoginAndPasswordSpec implements Specification<User> {
     }
 
     @Override
-    public boolean specified(User object) {
-        return false;
+    public String toSql(){return null;}
+
+    @Override
+    public List<String> getParameters() {
+        return Arrays.asList(login, password);
     }
+
 }

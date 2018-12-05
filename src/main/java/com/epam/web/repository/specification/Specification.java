@@ -1,6 +1,10 @@
 package com.epam.web.repository.specification;
 
+import java.util.List;
+
 public interface Specification<T> {
 
-    boolean specified(T object);
+    String toSql();
+
+    List<String> getParameters();
 }

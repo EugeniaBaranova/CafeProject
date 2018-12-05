@@ -10,6 +10,6 @@ public interface Repository<T extends Entity> {
 
     Optional<T> queryForSingleResult(Specification specification);
 
-    Optional<List<T>> query(String string);
+    List<T> query(Specification specification);
 
 }
